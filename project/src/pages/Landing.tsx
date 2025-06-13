@@ -39,7 +39,7 @@ const Landing = () => {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-black via-red-950/20 to-black"></div>
-        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg')] bg-cover bg-center opacity-20"></div>
+        <div className="absolute inset-0 bg-[url('./public/img/home.png')] bg-cover bg-center opacity-20"></div>
         
         {/* Animated background elements */}
         <div className="absolute inset-0">
