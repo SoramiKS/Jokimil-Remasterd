@@ -5,22 +5,22 @@ import { Shield, Zap, Users, Clock, Star, ArrowRight, CheckCircle, MessageCircle
 const Landing = () => {
   const features = [
     {
-      icon: <Shield className="h-8 w-8 text-red-500" />,
+      icon: <Shield className="h-8 w-8 text-dark-red-500" />,
       title: "100% Safe",
       description: "Your account security is my top priority. I never use cheats or bots."
     },
     {
-      icon: <Zap className="h-8 w-8 text-red-500" />,
+      icon: <Zap className="h-8 w-8 text-dark-blue-500" />,
       title: "Fast Delivery",
       description: "Most orders completed within 24-48 hours by me personally."
     },
     {
-      icon: <Users className="h-8 w-8 text-red-500" />,
+      icon: <Users className="h-8 w-8 text-dark-blue-500" />,
       title: "Personal Service",
       description: "Direct communication with me - no middlemen, no delays."
     },
     {
-      icon: <Clock className="h-8 w-8 text-red-500" />,
+      icon: <Clock className="h-8 w-8 text-dark-red-500" />,
       title: "Always Available",
       description: "Contact me anytime on WhatsApp for instant support and updates."
     }
@@ -38,21 +38,21 @@ const Landing = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-red-950/20 to-black"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-dark-blue-950/20 to-black"></div>
         <div className="absolute inset-0 bg-[url('./public/img/home.png')] bg-cover bg-center opacity-20"></div>
         
         {/* Animated background elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-4 h-4 bg-red-500 rounded-full animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-2 h-2 bg-red-400 rounded-full animate-ping"></div>
-          <div className="absolute bottom-40 left-20 w-3 h-3 bg-red-600 rounded-full animate-bounce"></div>
+          <div className="absolute top-20 left-10 w-4 h-4 bg-dark-blue-500 rounded-full animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-2 h-2 bg-dark-red-400 rounded-full animate-ping"></div>
+          <div className="absolute bottom-40 left-20 w-3 h-3 bg-dark-blue-600 rounded-full animate-bounce"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="space-y-8">
             {/* Logo and Title */}
             <div className="space-y-4">
-              <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-red-500 via-red-400 to-red-300 bg-clip-text text-transparent">
+              <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-dark-blue-500 via-dark-red-400 to-dark-blue-300 bg-clip-text text-transparent">
                 JOKIMIL
               </h1>
               <p className="text-xl md:text-2xl text-gray-300 font-light">
@@ -87,13 +87,13 @@ const Landing = () => {
             <div className="pt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/order"
-                className="inline-flex items-center px-8 py-4 text-lg font-medium text-white bg-gradient-to-r from-red-600 to-red-500 rounded-lg hover:from-red-700 hover:to-red-600 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-red-500/25"
+                className="inline-flex items-center px-8 py-4 text-lg font-medium text-white bg-gradient-to-r from-dark-blue-600 to-dark-red-500 rounded-lg hover:from-dark-blue-700 hover:to-dark-red-600 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-dark-blue-500/25"
               >
                 Get Boosted Now
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
               <a
-                href="https://wa.me/1234567890?text=Hi! I'm interested in your Wuthering Waves boosting service. Can you tell me more?"
+                href="https://wa.me/0895401658335?text=Hi! I'm interested in your Wuthering Waves boosting service. Can you tell me more?"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-8 py-4 text-lg font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-green-500/25"
@@ -107,7 +107,7 @@ const Landing = () => {
             <div className="pt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-red-500 mb-2">
+                  <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-dark-blue-500 to-dark-red-500 bg-clip-text text-transparent mb-2">
                     {stat.number}
                   </div>
                   <div className="text-gray-400 text-sm">
@@ -125,7 +125,7 @@ const Landing = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Why Choose <span className="text-red-500">Jokimil</span>?
+              Why Choose <span className="bg-gradient-to-r from-dark-blue-500 to-dark-red-500 bg-clip-text text-transparent">Jokimil</span>?
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Experience personalized boosting service with direct communication and guaranteed results
@@ -136,7 +136,7 @@ const Landing = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="bg-gray-900/50 backdrop-blur-sm border border-red-900/20 rounded-xl p-6 hover:border-red-500/40 transition-all duration-300 hover:transform hover:scale-105"
+                className="bg-gray-900/50 backdrop-blur-sm border border-dark-blue-900/20 rounded-xl p-6 hover:border-dark-blue-500/40 transition-all duration-300 hover:transform hover:scale-105"
               >
                 <div className="mb-4">
                   {feature.icon}
@@ -158,7 +158,7 @@ const Landing = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              My <span className="text-red-500">Services</span>
+              My <span className="bg-gradient-to-r from-dark-blue-500 to-dark-red-500 bg-clip-text text-transparent">Services</span>
             </h2>
             <p className="text-xl text-gray-400">
               Affordable boosting solutions with personal attention
@@ -167,20 +167,20 @@ const Landing = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {[
-              { title: "Map Unlocking", desc: "Unlock all areas and waypoints", price: "$15" },
-              { title: "Echo Farming", desc: "Farm rare echoes efficiently", price: "$20" },
-              { title: "Main Quest Completion", desc: "Complete story missions", price: "$25" },
-              { title: "Weekly Boss Runs", desc: "Defeat weekly bosses for rewards", price: "$12" },
-              { title: "Live Stream Option", desc: "Watch me work on your account", price: "+$10" },
-              { title: "Priority Order", desc: "Jump the queue for faster completion", price: "+$8" }
+              { title: "Account Babysitting", desc: "Keep your account active daily", price: "Rp3,000/day" },
+              { title: "100% Map Exploration", desc: "Complete map exploration", price: "Rp100,000" },
+              { title: "Echo Farming", desc: "Farm rare echoes efficiently", price: "Rp20,000/day" },
+              { title: "Main Quest Completion", desc: "Complete story missions", price: "Rp25,000" },
+              { title: "Live Stream Option", desc: "Watch me work on your account", price: "+Rp10,000" },
+              { title: "Event Completion", desc: "Complete limited-time events", price: "Rp20,000" }
             ].map((service, index) => (
               <div
                 key={index}
-                className="bg-black/50 border border-red-900/20 rounded-lg p-6 hover:border-red-500/40 transition-all duration-300"
+                className="bg-black/50 border border-dark-blue-900/20 rounded-lg p-6 hover:border-dark-blue-500/40 transition-all duration-300"
               >
                 <div className="flex justify-between items-start mb-2">
                   <h3 className="text-xl font-semibold text-white">{service.title}</h3>
-                  <span className="text-red-400 font-bold">{service.price}</span>
+                  <span className="text-dark-blue-400 font-bold">{service.price}</span>
                 </div>
                 <p className="text-gray-400">{service.desc}</p>
               </div>
@@ -190,7 +190,7 @@ const Landing = () => {
           <div className="text-center">
             <Link
               to="/order"
-              className="inline-flex items-center px-6 py-3 text-lg font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 transition-colors"
+              className="inline-flex items-center px-6 py-3 text-lg font-medium text-white bg-gradient-to-r from-dark-blue-600 to-dark-red-600 rounded-lg hover:from-dark-blue-700 hover:to-dark-red-700 transition-colors"
             >
               View All Services
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -205,7 +205,7 @@ const Landing = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                Personal <span className="text-red-500">Service</span>
+                Personal <span className="bg-gradient-to-r from-dark-blue-500 to-dark-red-500 bg-clip-text text-transparent">Service</span>
               </h2>
               <p className="text-xl text-gray-400 mb-6">
                 Unlike large boosting companies, you're dealing directly with me. 
@@ -213,26 +213,26 @@ const Landing = () => {
               </p>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-dark-blue-500 rounded-full"></div>
                   <span className="text-gray-300">Direct communication via WhatsApp</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-dark-red-500 rounded-full"></div>
                   <span className="text-gray-300">Personal attention to every order</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-dark-blue-500 rounded-full"></div>
                   <span className="text-gray-300">Flexible scheduling and requirements</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-dark-red-500 rounded-full"></div>
                   <span className="text-gray-300">Real-time updates and progress reports</span>
                 </div>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-red-900/20 to-black/50 border border-red-900/30 rounded-xl p-8">
+            <div className="bg-gradient-to-br from-dark-blue-900/20 to-black/50 border border-dark-blue-900/30 rounded-xl p-8">
               <div className="text-center mb-6">
-                <div className="w-20 h-20 bg-gradient-to-br from-red-600 to-red-500 rounded-full flex items-center justify-center text-2xl font-bold text-white mx-auto mb-4">
+                <div className="w-20 h-20 bg-gradient-to-br from-dark-blue-600 to-dark-red-500 rounded-full flex items-center justify-center text-2xl font-bold text-white mx-auto mb-4">
                   J
                 </div>
                 <h3 className="text-2xl font-bold text-white">Hi, I'm Jokimil!</h3>
@@ -252,7 +252,7 @@ const Landing = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              What My <span className="text-red-500">Clients</span> Say
+              What My <span className="bg-gradient-to-r from-dark-blue-500 to-dark-red-500 bg-clip-text text-transparent">Clients</span> Say
             </h2>
           </div>
 
@@ -276,7 +276,7 @@ const Landing = () => {
             ].map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-black/50 border border-red-900/20 rounded-xl p-6"
+                className="bg-black/50 border border-dark-blue-900/20 rounded-xl p-6"
               >
                 <div className="flex mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -284,7 +284,7 @@ const Landing = () => {
                   ))}
                 </div>
                 <p className="text-gray-300 mb-4">"{testimonial.comment}"</p>
-                <p className="text-red-400 font-semibold">- {testimonial.name}</p>
+                <p className="text-dark-blue-400 font-semibold">- {testimonial.name}</p>
               </div>
             ))}
           </div>
