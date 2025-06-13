@@ -1,86 +1,115 @@
 import React, { useState } from 'react';
-import { Shield, Zap, Clock, Star, Lock, User, MessageCircle, Video } from 'lucide-react';
+import { Shield, Zap, Clock, Star, Lock, User, MessageCircle, Video, MonitorCheck } from 'lucide-react';
 
 const Order = () => {
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [liveStream, setLiveStream] = useState(false);
+  const [username, setUsername] = useState('');
+  const [uid, setUid] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  
 
-  const services = [
-    {
-      id: 'map-unlocking',
-      name: 'Map Unlocking',
-      description: 'Unlock all areas, waypoints, and exploration points',
-      price: '$15',
-      duration: '6-12 hours',
-      icon: <Lock className="h-6 w-6" />
-    },
-    {
-      id: 'echo-farming',
-      name: 'Echo Farming',
-      description: 'Farm rare and legendary echoes efficiently',
-      price: '$20',
-      duration: '12-24 hours',
-      icon: <Star className="h-6 w-6" />
-    },
-    {
-      id: 'main-quest',
-      name: 'Main Quest Completion',
-      description: 'Complete main story missions and side quests',
-      price: '$25',
-      duration: '24-48 hours',
-      icon: <User className="h-6 w-6" />
-    },
-    {
-      id: 'weekly-boss',
-      name: 'Weekly Boss Runs',
-      description: 'Complete weekly boss challenges for rare rewards',
-      price: '$12',
-      duration: '2-4 hours',
-      icon: <Shield className="h-6 w-6" />
-    },
-    {
-      id: 'account-safety',
-      name: 'Account Safety Add-on',
-      description: 'Extra security measures and manual play guarantee',
-      price: '+$5',
-      duration: 'No additional time',
-      icon: <Lock className="h-6 w-6" />
-    },
-    {
-      id: 'priority-order',
-      name: 'Priority Order',
-      description: 'Jump the queue for 50% faster completion',
-      price: '+$8',
-      duration: '50% faster',
-      icon: <Zap className="h-6 w-6" />
-    }
-  ];
+
+
+ const services = [
+  {
+    id: 'babysitting',
+    name: 'Account Babysitting',
+    description: 'We keep your account active every day—spend waveplates, claim daily rewards, and avoid inactivity bans.',
+    price: 'Rp3,000 / day',
+    duration: 'Every Day',
+    icon: <MonitorCheck className="h-6 w-6" />
+  },
+  {
+    id: '100-map',
+    name: '100% Map Exploration',
+    description: 'Explore every inch of the map—unlock all waypoints, areas, and hidden points for full completion.',
+    price: 'Rp100,000 / Map',
+    duration: '12–24 hours',
+    icon: <Lock className="h-6 w-6" />
+  },
+  {
+    id: 'echo-farming',
+    name: 'Echo Farming',
+    description: 'Efficiently farm rare and legendary echoes daily to boost your inventory and account value.',
+    price: 'Rp20,000 / Echo per Day',
+    duration: '12–24 hours',
+    icon: <Star className="h-6 w-6" />
+  },
+  {
+    id: 'main-quest',
+    name: 'Main Quest Completion',
+    description: 'We’ll complete your main story missions and unlock major game progress—sit back and watch.',
+    price: 'Rp25,000 / Quest',
+    duration: '24–48 hours',
+    icon: <User className="h-6 w-6" />
+  },
+  {
+    id: 'companion-quest',
+    name: 'Companion Quest Completion',
+    description: 'Complete companion character storylines for full lore unlocks and extra rewards.',
+    price: 'Rp20,000 / Char',
+    duration: '24–48 hours',
+    icon: <User className="h-6 w-6" />
+  },
+  {
+    id: 'exploration-quest',
+    name: 'Exploration Quest Completion',
+    description: 'We tackle all exploration-based quests—find hidden areas, puzzles, and special rewards.',
+    price: 'Rp20,000 / Quest',
+    duration: '24–48 hours',
+    icon: <User className="h-6 w-6" />
+  },
+  {
+    id: 'side-quest',
+    name: 'Side Quest Completion',
+    description: 'Knock out side quests for XP, loot, and story extras. No quest is too small or too weird.',
+    price: 'Rp10,000 / Quest',
+    duration: '24–48 hours',
+    icon: <User className="h-6 w-6" />
+  },
+  {
+    id: 'event',
+    name: 'Event Completion',
+    description: 'Participate in limited-time events and missions to get exclusive rewards and event perks.',
+    price: 'Rp20,000 / Event',
+    duration: '24–48 hours',
+    icon: <User className="h-6 w-6" />
+  },
+];
+
 
   const handleServiceToggle = (serviceId: string) => {
-    setSelectedServices(prev => 
+    setSelectedServices(prev =>
       prev.includes(serviceId)
         ? prev.filter(id => id !== serviceId)
         : [...prev, serviceId]
     );
   };
 
-  const calculateTotal = () => {
-    let total = 0;
-    selectedServices.forEach(serviceId => {
-      const service = services.find(s => s.id === serviceId);
-      if (service) {
-        const price = service.price.replace(/[+$]/g, '');
-        total += parseInt(price);
+const calculateTotal = () => {
+  let total = 0;
+
+  selectedServices.forEach(serviceId => {
+    const service = services.find(s => s.id === serviceId);
+    if (service) {
+      // Ambil angka dari awal string dan buang yang bukan digit
+      const match = service.price.match(/[\d.,]+/);
+      if (match) {
+        const cleaned = match[0].replace(/[.,]/g, ''); // Misal "20,000" => "20000"
+        total += parseInt(cleaned, 10);
       }
-    });
-    
-    // Add live stream cost
-    if (liveStream) {
-      total += 10;
     }
-    
-    return total;
-  };
+  });
+
+  // Tambahin biaya live stream kalau ada
+  if (liveStream) {
+    total += 10000; // Rp10,000, bukan cuma 10 ygy 😭
+  }
+
+  return total;
+};
+
 
   const generateWhatsAppMessage = () => {
     const selectedServiceNames = selectedServices.map(serviceId => {
@@ -89,6 +118,9 @@ const Order = () => {
     }).filter(Boolean);
 
     const message = `Hi! I'd like to place an order for Wuthering Waves boosting:
+
+*Username:* ${username}
+*UID:* ${uid}
 
 *Selected Services:*
 ${selectedServiceNames.join('\n')}
@@ -101,12 +133,17 @@ Please let me know the next steps to proceed with my order. Thank you!`;
     return encodeURIComponent(message);
   };
 
+
   const handleWhatsAppOrder = () => {
+    if (!username || !uid) {
+      setErrorMessage('Please fill in your username and UID before placing the order.');
+      return;
+    }
     if (selectedServices.length === 0) {
       alert('Please select at least one service before placing your order.');
       return;
     }
-    
+
     const message = generateWhatsAppMessage();
     const whatsappUrl = `https://wa.me/0895401658335?text=${message}`;
     window.open(whatsappUrl, '_blank');
@@ -122,7 +159,7 @@ Please let me know the next steps to proceed with my order. Thank you!`;
               Place Your <span className="text-red-500">Order</span>
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Select your desired services and contact me directly on WhatsApp. 
+              Select your desired services and contact me directly on WhatsApp.
               I'll handle everything personally with complete security and efficiency.
             </p>
           </div>
@@ -142,18 +179,16 @@ Please let me know the next steps to proceed with my order. Thank you!`;
               {services.map((service) => (
                 <div
                   key={service.id}
-                  className={`border rounded-xl p-6 cursor-pointer transition-all duration-300 ${
-                    selectedServices.includes(service.id)
-                      ? 'border-red-500 bg-red-900/20'
-                      : 'border-red-900/20 bg-black/50 hover:border-red-500/40'
-                  }`}
+                  className={`border rounded-xl p-6 cursor-pointer transition-all duration-300 ${selectedServices.includes(service.id)
+                    ? 'border-red-500 bg-red-900/20'
+                    : 'border-red-900/20 bg-black/50 hover:border-red-500/40'
+                    }`}
                   onClick={() => handleServiceToggle(service.id)}
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center space-x-3">
-                      <div className={`p-2 rounded-lg ${
-                        selectedServices.includes(service.id) ? 'bg-red-500' : 'bg-red-900/30'
-                      }`}>
+                      <div className={`p-2 rounded-lg ${selectedServices.includes(service.id) ? 'bg-red-500' : 'bg-red-900/30'
+                        }`}>
                         {service.icon}
                       </div>
                       <div>
@@ -161,11 +196,10 @@ Please let me know the next steps to proceed with my order. Thank you!`;
                         <p className="text-red-400 font-medium">{service.price}</p>
                       </div>
                     </div>
-                    <div className={`w-6 h-6 rounded-full border-2 ${
-                      selectedServices.includes(service.id)
-                        ? 'border-red-500 bg-red-500'
-                        : 'border-gray-400'
-                    }`}>
+                    <div className={`w-6 h-6 rounded-full border-2 ${selectedServices.includes(service.id)
+                      ? 'border-red-500 bg-red-500'
+                      : 'border-gray-400'
+                      }`}>
                       {selectedServices.includes(service.id) && (
                         <div className="w-2 h-2 bg-white rounded-full mx-auto mt-1"></div>
                       )}
@@ -184,18 +218,16 @@ Please let me know the next steps to proceed with my order. Thank you!`;
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-white mb-4">Additional Options</h3>
               <div
-                className={`border rounded-xl p-6 cursor-pointer transition-all duration-300 ${
-                  liveStream
-                    ? 'border-red-500 bg-red-900/20'
-                    : 'border-red-900/20 bg-black/50 hover:border-red-500/40'
-                }`}
+                className={`border rounded-xl p-6 cursor-pointer transition-all duration-300 ${liveStream
+                  ? 'border-red-500 bg-red-900/20'
+                  : 'border-red-900/20 bg-black/50 hover:border-red-500/40'
+                  }`}
                 onClick={() => setLiveStream(!liveStream)}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center space-x-3">
-                    <div className={`p-2 rounded-lg ${
-                      liveStream ? 'bg-red-500' : 'bg-red-900/30'
-                    }`}>
+                    <div className={`p-2 rounded-lg ${liveStream ? 'bg-red-500' : 'bg-red-900/30'
+                      }`}>
                       <Video className="h-6 w-6" />
                     </div>
                     <div>
@@ -203,11 +235,10 @@ Please let me know the next steps to proceed with my order. Thank you!`;
                       <p className="text-red-400 font-medium">+$10</p>
                     </div>
                   </div>
-                  <div className={`w-6 h-6 rounded-full border-2 ${
-                    liveStream
-                      ? 'border-red-500 bg-red-500'
-                      : 'border-gray-400'
-                  }`}>
+                  <div className={`w-6 h-6 rounded-full border-2 ${liveStream
+                    ? 'border-red-500 bg-red-500'
+                    : 'border-gray-400'
+                    }`}>
                     {liveStream && (
                       <div className="w-2 h-2 bg-white rounded-full mx-auto mt-1"></div>
                     )}
@@ -263,9 +294,34 @@ Please let me know the next steps to proceed with my order. Thank you!`;
                     <div className="pt-4 border-t border-gray-700">
                       <div className="flex justify-between items-center">
                         <p className="text-xl font-bold text-white">Total:</p>
-                        <p className="text-2xl font-bold text-red-500">${calculateTotal()}</p>
+                        <p className="text-2xl font-bold text-red-500">Rp{calculateTotal()}</p>
                       </div>
                     </div>
+
+                    <div className="space-y-4 mb-4">
+                      <input
+                        type="text"
+                        placeholder="Enter your Username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        className="w-full px-4 py-2 bg-black border border-red-900/40 text-white rounded-md placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+                      />
+                      <input
+                        type="text"
+                        placeholder="Enter your UID"
+                        value={uid}
+                        onChange={(e) => setUid(e.target.value)}
+                        className="w-full px-4 py-2 bg-black border border-red-900/40 text-white rounded-md placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+                      />
+
+                      {errorMessage && (
+                        <div className="text-red-500 text-sm font-medium">
+                          {errorMessage}
+                        </div>
+                      )}
+                    </div>
+
+
 
                     <button
                       onClick={handleWhatsAppOrder}
@@ -341,7 +397,7 @@ Please let me know the next steps to proceed with my order. Thank you!`;
             <MessageCircle className="h-12 w-12 text-green-500 mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-white mb-4">Direct Communication</h3>
             <p className="text-gray-400 mb-6">
-              I prefer WhatsApp for orders because it allows for instant communication, 
+              I prefer WhatsApp for orders because it allows for instant communication,
               secure messaging, and real-time updates throughout your boosting process.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
