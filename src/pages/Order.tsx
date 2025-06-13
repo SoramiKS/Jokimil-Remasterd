@@ -43,7 +43,7 @@ const Order = () => {
     {
       id: 'main-quest',
       name: 'Main Quest Completion',
-      description: 'We'll complete your main story missions and unlock major game progress—sit back and watch.',
+      description: 'We\'ll complete your main story missions and unlock major game progress—sit back and watch.',
       price: 'Rp25,000',
       unit: 'Quest',
       duration: '24–48 hours',
