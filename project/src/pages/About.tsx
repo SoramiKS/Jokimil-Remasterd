@@ -53,7 +53,7 @@ const About = () => {
 
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             <div className="text-center">
-              <div className="text-4xl font-bold bg-gradient-to-r from-dark-blue-500 to-dark-red-500 bg-clip-text text-transparent mb-2">2023</div>
+              <div className="text-4xl font-bold bg-gradient-to-r from-dark-blue-500 to-dark-red-500 bg-clip-text text-transparent mb-2 notranslate">2023</div>
               <div className="text-gray-400">Founded</div>
             </div>
             <div className="text-center">
@@ -137,7 +137,7 @@ const About = () => {
               }
             ].map((process, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-dark-blue-600 to-dark-red-600 rounded-full flex items-center justify-center text-2xl font-bold text-white mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-dark-blue-600 to-dark-red-600 rounded-full flex items-center justify-center text-2xl font-bold text-white mx-auto mb-4 notranslate">
                   {process.step}
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3">

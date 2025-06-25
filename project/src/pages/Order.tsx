@@ -239,7 +239,7 @@ Please let me know the next steps to proceed with my order. Thank you!`;
                           <Minus className="h-4 w-4 text-white" />
                         </button>
                         
-                        <span className="text-white font-semibold min-w-[2rem] text-center">
+                        <span className="text-white font-semibold min-w-[2rem] text-center notranslate">
                           {quantity}
                         </span>
                         
