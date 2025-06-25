@@ -107,7 +107,7 @@ const Landing = () => {
             <div className="pt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-dark-blue-500 to-dark-red-500 bg-clip-text text-transparent mb-2">
+                  <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-dark-blue-500 to-dark-red-500 bg-clip-text text-transparent mb-2 nontranslate">
                     {stat.number}
                   </div>
                   <div className="text-gray-400 text-sm">
