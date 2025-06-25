@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Gamepad2 } from 'lucide-react';
+import { Menu, X, Gamepad2, Globe } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,8 +21,8 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
+            <div className="flex items-baseline space-x-8">
               <Link
                 to="/"
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
@@ -53,6 +53,12 @@ const Navbar = () => {
               >
                 Order
               </Link>
+            </div>
+            
+            {/* Google Translate Widget */}
+            <div className="flex items-center space-x-2">
+              <Globe className="h-4 w-4 text-gray-400" />
+              <div id="google_translate_element"></div>
             </div>
           </div>
 
@@ -105,6 +111,14 @@ const Navbar = () => {
             >
               Order
             </Link>
+            
+            {/* Mobile Google Translate */}
+            <div className="px-3 py-2 border-t border-dark-blue-900/20 mt-2">
+              <div className="flex items-center space-x-2">
+                <Globe className="h-4 w-4 text-gray-400" />
+                <div id="google_translate_element_mobile"></div>
+              </div>
+            </div>
           </div>
         </div>
       )}

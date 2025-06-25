@@ -5,6 +5,7 @@ import Landing from './pages/Landing';
 import About from './pages/About';
 import Order from './pages/Order';
 import Footer from './components/Footer';
+import TranslateWidget from './components/TranslateWidget';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/order" element={<Order />} />
         </Routes>
         <Footer />
+        <TranslateWidget />
       </div>
     </Router>
   );
